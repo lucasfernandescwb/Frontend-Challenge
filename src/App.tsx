@@ -2,12 +2,12 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   RouterProvider,
-  Route
-} from "react-router-dom"
+  Route,
+} from "react-router-dom";
 
-import RootLayout from "./components/RootLayout"
-import Home from "./pages/Home"
-import Movie from "./pages/Movie"
+import RootLayout from "./components/RootLayout";
+import Home from "./pages/Home";
+import Movie from "./pages/Movie";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -16,10 +16,10 @@ const router = createBrowserRouter(
       <Route path="movie/:id" element={<Movie />} />
     </Route>
   )
-)
+);
 
 function App() {
-  return <RouterProvider router={router} />
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;

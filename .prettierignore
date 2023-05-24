@@ -1,0 +1,15 @@
+build
+coverage
+*.html
+tailwind.config.js
+tsconfig.json
+tsconfig.node.json
+vite.config.ts
+package.json
+postcss.config.js
+README.md
+pnpm-lock.yaml
+.eslintrc.cjs
+.env
+public
+node_modules

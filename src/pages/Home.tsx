@@ -1,43 +1,45 @@
-import { Suspense, useEffect, useState, lazy } from "react"
+import { Suspense, useEffect, useState, lazy } from "react";
 
-import { API_KEY, IMG_URL } from "../api"
-import { useAxios } from "../utils/useAxios"
+import { API_KEY, IMG_URL } from "../api";
+import { useAxios } from "../utils/useAxios";
 
-import Hero from "../components/Hero"
-import Loader from "../components/Loader"
+import Hero from "../components/Hero";
+import Loader from "../components/Loader";
 
-const Feed = lazy(() => import('../components/Feed'))
+const Feed = lazy(() => import("../components/Feed"));
 
 function Home() {
-  const [counter, setCounter] = useState<number>(0)
+  const [counter, setCounter] = useState<number>(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCounter(counter + 1)
-      if (counter === 6) setCounter(0)
-    }, 4000)
+      setCounter(counter + 1);
+      if (counter === 6) setCounter(0);
+    }, 4000);
 
-    return () => clearInterval(interval)
-  }, [counter])
+    return () => clearInterval(interval);
+  }, [counter]);
 
   const { response: popular } = useAxios({
-    method: 'GET',
-    url: `/movie/popular?api_key=${API_KEY}`
-  })
+    method: "GET",
+    url: `/movie/popular?api_key=${API_KEY}`,
+  });
 
   const { response: top_rated } = useAxios({
-    method: 'GET',
-    url: `/movie/top_rated?api_key=${API_KEY}`
-  })
+    method: "GET",
+    url: `/movie/top_rated?api_key=${API_KEY}`,
+  });
 
   const { response: upcoming } = useAxios({
-    method: 'GET',
-    url: `/movie/upcoming?api_key=${API_KEY}`
-  })
+    method: "GET",
+    url: `/movie/upcoming?api_key=${API_KEY}`,
+  });
 
   return (
     <>
-      <Hero url={`${IMG_URL}/${popular?.data.results[counter].backdrop_path}`} />
+      <Hero
+        url={`${IMG_URL}/${popular?.data.results[counter].backdrop_path}`}
+      />
 
       <Suspense fallback={<Loader show />}>
         <div className="wrapper space-y-8">
@@ -47,7 +49,7 @@ function Home() {
         </div>
       </Suspense>
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;
