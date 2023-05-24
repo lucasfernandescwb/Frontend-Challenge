@@ -1,0 +1,7 @@
+# Ignore artifacts:
+build
+coverage
+tailwind.config.js
+pnpm-lock.yaml
+*.html
+vite.config.ts
