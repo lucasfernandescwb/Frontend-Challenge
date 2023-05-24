@@ -1,10 +1,10 @@
-import { AxiosResponse } from "axios";
+import { AxiosRequestConfig, AxiosResponse } from "axios";
 
 import { Movie } from "../utils/entities";
 import Card from "./Card";
 
 type FeedProps = {
-  response?: AxiosResponse<any, any>;
+  response?: AxiosResponse<any, AxiosRequestConfig>;
   title: string;
 };
 

@@ -7,7 +7,7 @@ type ModalProps = {
 };
 
 const Modal = ({ video, setModal }: ModalProps) => {
-  function closeModal(event: any) {
+  function closeModal(event: React.MouseEvent) {
     if (event.target === event.currentTarget) setModal(false);
   }
 
